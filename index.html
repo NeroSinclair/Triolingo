@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Triolingo</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HOME
+========================================= -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+    <nav>
+
+        <div class="logo">
+            TRIOLINGO
+        </div>
+
+        <div class="nav-links">
+
+            <button onclick="showHome()">
+                Home
+            </button>
+
+            <button onclick="showLanguages()">
+                Languages
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <main class="hero">
+
+        <div class="hero-text">
+
+            <span class="badge">
+                ADAPTIVE LANGUAGE LEARNING
+            </span>
+
+            <h1>
+                Learn.<br>
+                Adapt.<br>
+                Improve.
+            </h1>
+
+            <p>
+                A language learning experience
+                that adapts to your ability
+                as you learn.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="showLanguages()"
+            >
+                GET STARTED →
+            </button>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="language-circle">
+
+                <span>A</span>
+                <span>あ</span>
+                <span>Ñ</span>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</section>
+
+
+
+<!-- =========================================
+     LANGUAGE SELECT
+========================================= -->
+
+<section
+    id="languages"
+    class="page"
+>
+
+    <main class="language-page">
+
+
+        <button
+            class="back-btn"
+            onclick="showHome()"
+        >
+            ← Back
+        </button>
+
+
+        <div class="section-title">
+
+            <span class="badge">
+                CHOOSE YOUR JOURNEY
+            </span>
+
+            <h2>
+                What do you want to learn?
+            </h2>
+
+            <p>
+                Select a language to start
+                your adaptive learning journey.
+            </p>
+
+        </div>
+
+
+        <div class="language-grid">
+
+
+            <!-- ENGLISH -->
+
+            <article class="language-card">
+
+                <div class="flag">
+                    🇬🇧
+                </div>
+
+                <h3>
+                    English
+                </h3>
+
+                <p>
+                    Learn vocabulary, grammar,
+                    sentence structure
+                    and translation.
+                </p>
+
+                <button onclick="startEnglish()">
+                    START LEARNING →
+                </button>
+
+            </article>
+
+
+
+            <!-- JAPANESE -->
+
+            <article class="language-card locked">
+
+                <div class="lock-icon">
+                    🔒
+                </div>
+
+                <div class="flag">
+                    🇯🇵
+                </div>
+
+                <h3>
+                    Japanese
+                </h3>
+
+                <p>
+                    Learn Japanese vocabulary,
+                    writing and sentence structure.
+                </p>
+
+                <span class="coming-soon">
+                    COMING SOON
+                </span>
+
+            </article>
+
+
+
+            <!-- SPANISH -->
+
+            <article class="language-card locked">
+
+                <div class="lock-icon">
+                    🔒
+                </div>
+
+                <div class="flag">
+                    🇪🇸
+                </div>
+
+                <h3>
+                    Spanish
+                </h3>
+
+                <p>
+                    Learn Spanish vocabulary,
+                    grammar and conversation.
+                </p>
+
+                <span class="coming-soon">
+                    COMING SOON
+                </span>
+
+            </article>
+
+
+        </div>
+
+    </main>
+
+</section>
+
+
+
+<!-- =========================================
+     QUIZ
+========================================= -->
+
+<section
+    id="quiz"
+    class="page"
+>
+
+    <main class="quiz-page">
+
+
+        <!-- HEADER -->
+
+        <header class="quiz-header">
+
+
+            <button
+                class="exit-btn"
+                onclick="exitQuiz()"
+                aria-label="Exit quiz"
+            >
+                ×
+            </button>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+
+            </div>
+
+
+            <div class="heart">
+
+                ♥
+                <span id="lives">
+                    3
+                </span>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- QUESTION -->
+
+        <div class="quiz-content">
+
+
+            <div class="quiz-info">
+
+                <span
+                    id="questionType"
+                    class="question-type"
+                >
+                    VOCABULARY
+                </span>
+
+
+                <span
+                    id="difficultyDisplay"
+                    class="difficulty"
+                >
+                    AI Skill 20%
+                </span>
+
+            </div>
+
+
+            <h1 id="question">
+                Question
+            </h1>
+
+
+            <p
+                id="questionExtra"
+                class="question-extra"
+            ></p>
+
+
+
+            <!-- MULTIPLE CHOICE -->
+
+            <div
+                id="multipleChoiceArea"
+                class="question-area hidden"
+            >
+
+                <div
+                    id="answers"
+                    class="answers"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ARRANGE WORDS -->
+
+            <div
+                id="arrangeArea"
+                class="question-area hidden"
+            >
+
+                <div class="answer-label">
+                    YOUR SENTENCE
+                </div>
+
+
+                <div
+                    id="selectedWords"
+                    class="selected-words"
+                >
+
+                    <span class="placeholder">
+                        Select the words below...
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="answer-label word-bank-title"
+                >
+                    WORD BANK
+                </div>
+
+
+                <div
+                    id="wordBank"
+                    class="word-bank"
+                ></div>
+
+            </div>
+
+
+
+            <!-- TRANSLATION -->
+
+            <div
+                id="translationArea"
+                class="question-area hidden"
+            >
+
+                <label
+                    for="translationInput"
+                    class="answer-label"
+                >
+                    YOUR ANSWER
+                </label>
+
+
+                <input
+                    id="translationInput"
+                    class="translation-input"
+                    type="text"
+                    placeholder="Type your answer..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <!-- FEEDBACK -->
+
+            <div
+                id="feedback"
+                class="feedback hidden"
+            ></div>
+
+
+
+            <!-- BUTTON -->
+
+            <div class="quiz-action">
+
+                <button
+                    id="checkButton"
+                    class="check-btn"
+                    onclick="checkAnswer()"
+                    disabled
+                >
+                    CHECK
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</section>
+
+
+
+<!-- =========================================
+     GAME OVER
+========================================= -->
+
+<section
+    id="gameOver"
+    class="page"
+>
+
+    <main class="game-over-page">
+
+        <div class="game-over-card">
+
+
+            <div class="game-over-icon">
+                ♡
+            </div>
+
+
+            <span class="game-over-label">
+                LESSON ENDED
+            </span>
+
+
+            <h1>
+                Don't Give Up.
+            </h1>
+
+
+            <p class="game-over-message">
+
+                Making mistakes is part of learning.
+                Every wrong answer brings you
+                one step closer to understanding.
+
+            </p>
+
+
+            <p class="game-over-motivation">
+
+                Keep learning. Keep improving.<br>
+                You can do it!
+
+            </p>
+
+
+
+            <div class="game-over-stats">
+
+
+                <div class="game-over-stat">
+
+                    <span id="gameOverCorrect">
+                        0/0
+                    </span>
+
+                    <small>
+                        CORRECT
+                    </small>
+
+                </div>
+
+
+                <div class="game-over-stat">
+
+                    <span id="gameOverAccuracy">
+                        0%
+                    </span>
+
+                    <small>
+                        ACCURACY
+                    </small>
+
+                </div>
+
+
+                <div class="game-over-stat">
+
+                    <span id="gameOverSkill">
+                        0%
+                    </span>
+
+                    <small>
+                        AI SKILL
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="game-over-buttons">
+
+
+                <button
+                    class="retry-btn"
+                    onclick="startEnglish()"
+                >
+                    TRY AGAIN →
+                </button>
+
+
+                <button
+                    class="home-btn"
+                    onclick="showLanguages()"
+                >
+                    BACK TO LANGUAGES
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</section>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
